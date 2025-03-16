@@ -1,4 +1,3 @@
-import DeliveryDetails from "@/components/deliveryDetails/DeliveryDetails"
 import DeliveryFetcher from '@/components/DeliveryFetcher'
 
 interface DeliveryPageProps {
