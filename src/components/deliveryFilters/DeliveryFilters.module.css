@@ -1,12 +1,16 @@
 .container {
 	margin-bottom: 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
 }
 
 .label {
 	margin-right: 8px;
 }
 
-.select {
+.select,
+.input {
 	padding: 4px;
 	border: 1px solid #d1d5db;
 	border-radius: 4px;
@@ -17,7 +21,7 @@
 		margin-bottom: 12px;
 		display: flex;
 		flex-direction: column;
-		gap: 4px;
+		gap: 8px;
 	}
 
 	.label {
@@ -25,7 +29,8 @@
 		font-size: 12px;
 	}
 
-	.select {
+	.select,
+	.input {
 		padding: 3px;
 		font-size: 12px;
 		width: 100%;
@@ -41,7 +46,8 @@
 		font-size: 14px;
 	}
 
-	.select {
+	.select,
+	.input {
 		padding: 4px;
 		font-size: 14px;
 	}

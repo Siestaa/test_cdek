@@ -11,6 +11,8 @@ interface DeliveryContextType {
 	currentPage: number
 	setCurrentPage: (page: number) => void
 	itemsPerPage: number
+	searchQuery: string
+	setSearchQuery: (query: string) => void
 }
 
 const DeliveryContext = createContext<DeliveryContextType | undefined>(undefined)
@@ -19,11 +21,21 @@ export const DeliveryProvider = ({ children }: { children: ReactNode }) => {
 	const [deliveries] = useState<Delivery[]>(mockData)
 	const [filters, setFilters] = useState<Filters>({ status: "" })
 	const [currentPage, setCurrentPage] = useState(1)
+	const [searchQuery, setSearchQuery] = useState("")
 	const itemsPerPage = 10
 
 	return (
 		<DeliveryContext.Provider
-			value={{ deliveries, filters, setFilters, currentPage, setCurrentPage, itemsPerPage }}
+			value={{
+				deliveries,
+				filters,
+				setFilters,
+				currentPage,
+				setCurrentPage,
+				itemsPerPage,
+				searchQuery,
+				setSearchQuery,
+			}}
 		>
 			{children}
 		</DeliveryContext.Provider>

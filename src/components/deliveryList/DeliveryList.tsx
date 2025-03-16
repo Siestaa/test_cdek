@@ -1,35 +1,42 @@
-'use client'
+"use client"
 
-import DeliveryFilters from '@/components/deliveryFilters/DeliveryFilters'
-import DeliveryTable from '@/components/deliveryTable/DeliveryTable'
-import Pagination from '@/components/pagination/Pagination'
-import { useDeliveryContext } from '@/context/DeliveryContext'
-import { Delivery } from '@/types/delivery'
-import { useEffect, useState } from 'react'
-import styles from './DeliveryList.module.css'
+import DeliveryFilters from "@/components/deliveryFilters/DeliveryFilters"
+import DeliveryTable from "@/components/deliveryTable/DeliveryTable"
+import Pagination from "@/components/pagination/Pagination"
+import { useDeliveryContext } from "@/context/DeliveryContext"
+import { Delivery } from "@/types/delivery"
+import { useEffect, useState } from "react"
+import styles from "./DeliveryList.module.css"
 
 export default function DeliveryList() {
-	const { deliveries, filters, currentPage, itemsPerPage } =
-		useDeliveryContext()
-	const [paginatedDeliveries, setPaginatedDeliveries] = useState<Delivery[]>()
-	const [countDeliveries, setCountDeliveries] = useState(1)
+	const { deliveries, filters, currentPage, itemsPerPage, searchQuery } = useDeliveryContext()
+	const [paginatedDeliveries, setPaginatedDeliveries] = useState<Delivery[] | undefined>()
+	const [countDeliveries, setCountDeliveries] = useState(0)
 
 	useEffect(() => {
 		const filteredDeliveries = Array.isArray(deliveries)
 			? deliveries.filter(delivery => {
-				const lastStatus =
-					delivery.entity.statuses[delivery.entity.statuses.length - 1]
-				return !filters.status || lastStatus.code === filters.status
+				const lastStatus = delivery.entity.statuses[delivery.entity.statuses.length - 1]
+				const matchesStatus = !filters.status || lastStatus.code === filters.status
+				const matchesSearch = !searchQuery ||
+					delivery.entity.uuid.toLowerCase().includes(searchQuery.toLowerCase()) ||
+					delivery.entity.cdek_number.toLowerCase().includes(searchQuery.toLowerCase())
+				return matchesStatus && matchesSearch
 			})
 			: []
-		setCountDeliveries(filteredDeliveries.length)
-		const paginatedDeliveries = filteredDeliveries.slice(
+		const newPaginatedDeliveries = filteredDeliveries.slice(
 			(currentPage - 1) * itemsPerPage,
 			currentPage * itemsPerPage
 		)
 
-		setPaginatedDeliveries(paginatedDeliveries)
-	}, [deliveries, filters, currentPage])
+		if (
+			countDeliveries !== filteredDeliveries.length ||
+			JSON.stringify(paginatedDeliveries) !== JSON.stringify(newPaginatedDeliveries)
+		) {
+			setCountDeliveries(filteredDeliveries.length)
+			setPaginatedDeliveries(newPaginatedDeliveries)
+		}
+	}, [deliveries, filters, currentPage, itemsPerPage, searchQuery, countDeliveries, paginatedDeliveries])
 
 	return (
 		<div className={styles.container}>
