@@ -1,0 +1,128 @@
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+.backLink {
+	color: #3b82f6;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 16px;
+}
+
+.backLink:hover {
+	text-decoration: underline;
+}
+
+.title {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 16px;
+}
+
+.content {
+	margin-top: 16px;
+}
+
+.subtitle {
+	font-size: 20px;
+	margin-top: 16px;
+}
+
+.subSubtitle {
+	font-size: 16px;
+	margin-top: 8px;
+}
+
+.list {
+	list-style-type: none;
+	padding: 0;
+}
+
+.list li {
+	margin-bottom: 8px;
+}
+
+.sublist {
+	list-style-type: none;
+	padding-left: 16px;
+}
+
+@media (max-width: 767px) {
+	.container {
+		padding: 8px;
+	}
+
+	.backLink {
+		margin-bottom: 12px;
+		font-size: 12px;
+	}
+
+	.title {
+		font-size: 18px;
+		margin-bottom: 12px;
+	}
+
+	.content {
+		margin-top: 12px;
+		font-size: 12px;
+	}
+
+	.subtitle {
+		font-size: 16px;
+		margin-top: 12px;
+	}
+
+	.subSubtitle {
+		font-size: 12px;
+		margin-top: 6px;
+	}
+
+	.list li {
+		margin-bottom: 6px;
+	}
+
+	.sublist {
+		padding-left: 8px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.container {
+		padding: 12px;
+	}
+
+	.backLink {
+		margin-bottom: 14px;
+		font-size: 14px;
+	}
+
+	.title {
+		font-size: 20px;
+		margin-bottom: 14px;
+	}
+
+	.content {
+		margin-top: 14px;
+		font-size: 14px;
+	}
+
+	.subtitle {
+		font-size: 18px;
+		margin-top: 14px;
+	}
+
+	.subSubtitle {
+		font-size: 14px;
+		margin-top: 7px;
+	}
+
+	.list li {
+		margin-bottom: 7px;
+	}
+
+	.sublist {
+		padding-left: 12px;
+	}
+}

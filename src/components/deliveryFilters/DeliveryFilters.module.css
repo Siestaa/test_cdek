@@ -1,0 +1,48 @@
+.container {
+	margin-bottom: 16px;
+}
+
+.label {
+	margin-right: 8px;
+}
+
+.select {
+	padding: 4px;
+	border: 1px solid #d1d5db;
+	border-radius: 4px;
+}
+
+@media (max-width: 767px) {
+	.container {
+		margin-bottom: 12px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.label {
+		margin-right: 0;
+		font-size: 12px;
+	}
+
+	.select {
+		padding: 3px;
+		font-size: 12px;
+		width: 100%;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+	.container {
+		margin-bottom: 14px;
+	}
+
+	.label {
+		font-size: 14px;
+	}
+
+	.select {
+		padding: 4px;
+		font-size: 14px;
+	}
+}

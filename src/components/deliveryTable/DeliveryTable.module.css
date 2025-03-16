@@ -1,0 +1,54 @@
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.headerRow {
+	background-color: #e5e7eb;
+}
+
+.headerCell {
+	padding: 8px;
+	text-align: left;
+}
+
+.row {
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.cell {
+	padding: 8px;
+}
+
+.link {
+	color: #3b82f6;
+	text-decoration: none;
+}
+
+.link:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+	.table {
+		display: block;
+		overflow-x: auto;
+		white-space: nowrap;
+	}
+
+	.headerCell,
+	.cell {
+		padding: 6px;
+		font-size: 12px;
+		min-width: 80px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+	.headerCell,
+	.cell {
+		padding: 7px;
+		font-size: 14px;
+	}
+}
