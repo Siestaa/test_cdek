@@ -20,7 +20,6 @@ const mockDeliveries: Delivery[] = [
 			packages: [],
 			services: [],
 		},
-		related_entities: [],
 	},
 	{
 		entity: {
@@ -38,7 +37,6 @@ const mockDeliveries: Delivery[] = [
 			packages: [],
 			services: []
 		},
-		related_entities: [],
 	},
 ]
 

@@ -18,7 +18,6 @@ const mockDelivery: Delivery = {
 		shipment_point: '',
 		delivery_point: '',
 	},
-	related_entities: [],
 }
 
 describe('DeliveryDetails', () => {
