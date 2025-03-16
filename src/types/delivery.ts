@@ -45,7 +45,6 @@ export interface Delivery {
 			total_sum: number
 		}[]
 	}
-	related_entities: any[]
 }
 
 export interface Filters {

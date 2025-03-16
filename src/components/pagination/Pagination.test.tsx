@@ -1,20 +1,22 @@
-import Pagination from '@/components/pagination/Pagination'
+import * as DeliveryContext from '@/context/DeliveryContext'
 import { DeliveryProvider } from '@/context/DeliveryContext'
 import { fireEvent, render, screen } from '@testing-library/react'
+import Pagination from './Pagination'
 
 describe('Pagination', () => {
 	it('renders pagination and handles navigation', () => {
 		const setCurrentPage = jest.fn()
 
-		jest.spyOn(require('@/context/DeliveryContext'), 'useDeliveryContext')
-			.mockReturnValue({
-				deliveries: [],
-				filters: { status: '' },
-				setFilters: jest.fn(),
-				currentPage: 1,
-				setCurrentPage,
-				itemsPerPage: 10,
-			})
+		jest.spyOn(DeliveryContext, 'useDeliveryContext').mockReturnValue({
+			deliveries: [],
+			filters: { status: '' },
+			setFilters: jest.fn(),
+			currentPage: 1,
+			setCurrentPage,
+			itemsPerPage: 10,
+			searchQuery: '',
+			setSearchQuery: jest.fn(),
+		})
 
 		render(
 			<DeliveryProvider>

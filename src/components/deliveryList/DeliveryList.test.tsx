@@ -36,7 +36,7 @@ const mockDeliveries: Delivery[] = [
 			sender: { company: '', name: '' },
 			recipient: { company: '', name: '', phones: [] },
 			packages: [],
-			services: [],
+			services: []
 		},
 		related_entities: [],
 	},
@@ -58,7 +58,7 @@ const customRender = (
 		...contextValue,
 	}
 
-	jest.spyOn(require('@/context/DeliveryContext'), 'useDeliveryContext').mockReturnValue(mockContextValue)
+	jest.spyOn({ useDeliveryContext }, 'useDeliveryContext').mockReturnValue(mockContextValue)
 
 	return render(<DeliveryProvider>{ui}</DeliveryProvider>)
 }
@@ -94,7 +94,7 @@ describe('DeliveryList', () => {
 		expect(setSearchQuery).toHaveBeenCalledWith('abc')
 		expect(setCurrentPage).toHaveBeenCalledWith(1)
 
-		jest.spyOn(require('@/context/DeliveryContext'), 'useDeliveryContext').mockReturnValue({
+		jest.spyOn({ useDeliveryContext }, 'useDeliveryContext').mockReturnValue({
 			deliveries: mockDeliveries,
 			filters: { status: '' },
 			setFilters: jest.fn(),

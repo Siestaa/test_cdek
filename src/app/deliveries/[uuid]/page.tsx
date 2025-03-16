@@ -1,5 +1,12 @@
-import DeliveryFetcher from "@/components/DeliveryFetcher"
+import DeliveryDetails from "@/components/deliveryDetails/DeliveryDetails"
 
-export default function DeliveryPage({ params }: { params: { uuid: string } }) {
-	return <DeliveryFetcher uuid={params.uuid} />
+interface DeliveryPageProps {
+	params: Promise<{ uuid: string }>
+}
+
+export default async function DeliveryPage({ params }: DeliveryPageProps) {
+	const resolvedParams = await params
+	const { uuid } = resolvedParams
+
+	return <DeliveryDetails uuid={uuid} />
 }
